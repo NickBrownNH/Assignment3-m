@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 /**
@@ -27,6 +28,8 @@ public class PicrossController implements Initializable {
      * Selects a puzzle and shows the solution
      */
     protected void showSolution() {
+        PicrossPuzzlePool puzzlePool = new PicrossPuzzlePool(Paths.get(".\\Data"));
+
         com.example.assignment_1.PicrossPuzzle puzzle1 = new com.example.assignment_1.PicrossPuzzle();
         String[] rowClues = puzzle1.getRowClues();
         String[] colClues = puzzle1.getColumnClues();
