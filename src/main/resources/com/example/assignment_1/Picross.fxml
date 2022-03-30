@@ -117,7 +117,7 @@
       <HBox prefHeight="71.0" prefWidth="77.0" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="7">
          <children>
             <Button fx:id="clickme" mnemonicParsing="false" onAction="#showSolution" text="New Game" />
-            <Button alignment="TOP_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="    Quit    " translateX="110.0">
+            <Button alignment="TOP_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#quit" text="    Quit    " translateX="110.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

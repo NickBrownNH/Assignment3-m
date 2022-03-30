@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 /**
@@ -23,7 +22,13 @@ public class PicrossController implements Initializable {
     final String ON_COLOR = "-fx-background-color: black";
     final String OFF_COLOR = "-fx-background-color: white";
 
-
+    @FXML
+    /**
+     * Selects a puzzle and shows the solution
+     */
+    protected void quit() {
+        System.exit(0);
+    }
 
     @FXML
     /**
