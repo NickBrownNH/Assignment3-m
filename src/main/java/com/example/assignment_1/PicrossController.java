@@ -23,18 +23,25 @@ public class PicrossController implements Initializable {
     final String ON_COLOR = "-fx-background-color: black";
     final String OFF_COLOR = "-fx-background-color: white";
 
+
+
     @FXML
     /**
      * Selects a puzzle and shows the solution
      */
     protected void showSolution() {
-        PicrossPuzzlePool puzzlePool = new PicrossPuzzlePool(Paths.get(".\\Data"));
+        PicrossPuzzlePool puzzlePool = new PicrossPuzzlePool();
+
+        PicrossPuzzle puzzleNum = puzzlePool.getRandomPuzzle();
+
+        System.out.println(puzzlePool.getRandomPuzzle());
+        System.out.println(puzzlePool.PicrossPuzzlePool(puzzleNum));
 
         com.example.assignment_1.PicrossPuzzle puzzle1 = new com.example.assignment_1.PicrossPuzzle();
-        String[] rowClues = puzzle1.getRowClues();
-        String[] colClues = puzzle1.getColumnClues();
+        String[] rowClues = puzzlePool.PicrossPuzzlePool(puzzleNum).getRowClues();
+        String[] colClues = puzzlePool.PicrossPuzzlePool(puzzleNum).getColumnClues();
         System.out.println();
-        System.out.println(puzzle1);
+        System.out.println(puzzlePool.PicrossPuzzlePool(puzzleNum));
 
         //Prints the puzzle's solution to standard output for debugging purposes
         System.out.println("ROW CLUES: ");
@@ -61,31 +68,31 @@ public class PicrossController implements Initializable {
 
         //Set buttons on the gridpane to either black or white
         //depending on the puzzle's solution array
-        setButton(B1, puzzle1.getValue(0, 0));
-        setButton(B2, puzzle1.getValue(0, 1));
-        setButton(B3, puzzle1.getValue(0, 2));
-        setButton(B4, puzzle1.getValue(0, 3));
-        setButton(B5, puzzle1.getValue(0, 4));
-        setButton(B6, puzzle1.getValue(1, 0));
-        setButton(B7, puzzle1.getValue(1, 1));
-        setButton(B8, puzzle1.getValue(1, 2));
-        setButton(B9, puzzle1.getValue(1, 3));
-        setButton(B10, puzzle1.getValue(1, 4));
-        setButton(B11, puzzle1.getValue(2, 0));
-        setButton(B12, puzzle1.getValue(2, 1));
-        setButton(B13, puzzle1.getValue(2, 2));
-        setButton(B14, puzzle1.getValue(2, 3));
-        setButton(B15, puzzle1.getValue(2, 4));
-        setButton(B16, puzzle1.getValue(3, 0));
-        setButton(B17, puzzle1.getValue(3, 1));
-        setButton(B18, puzzle1.getValue(3, 2));
-        setButton(B19, puzzle1.getValue(3, 3));
-        setButton(B20, puzzle1.getValue(3, 4));
-        setButton(B21, puzzle1.getValue(4, 0));
-        setButton(B22, puzzle1.getValue(4, 1));
-        setButton(B23, puzzle1.getValue(4, 2));
-        setButton(B24, puzzle1.getValue(4, 3));
-        setButton(B25, puzzle1.getValue(4, 4));
+        setButton(B1, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(0, 0));
+        setButton(B2, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(0, 1));
+        setButton(B3, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(0, 2));
+        setButton(B4, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(0, 3));
+        setButton(B5, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(0, 4));
+        setButton(B6, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(1, 0));
+        setButton(B7, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(1, 1));
+        setButton(B8, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(1, 2));
+        setButton(B9, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(1, 3));
+        setButton(B10, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(1, 4));
+        setButton(B11, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(2, 0));
+        setButton(B12, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(2, 1));
+        setButton(B13, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(2, 2));
+        setButton(B14, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(2, 3));
+        setButton(B15, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(2, 4));
+        setButton(B16, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(3, 0));
+        setButton(B17, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(3, 1));
+        setButton(B18, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(3, 2));
+        setButton(B19, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(3, 3));
+        setButton(B20, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(3, 4));
+        setButton(B21, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(4, 0));
+        setButton(B22, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(4, 1));
+        setButton(B23, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(4, 2));
+        setButton(B24, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(4, 3));
+        setButton(B25, puzzlePool.PicrossPuzzlePool(puzzleNum).getValue(4, 4));
     }
 
     /**

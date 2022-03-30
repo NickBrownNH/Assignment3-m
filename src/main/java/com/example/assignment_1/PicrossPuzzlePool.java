@@ -5,14 +5,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class PicrossPuzzlePool {
 
-    public int size = 1;
-    private PicrossPuzzle[] puzzlePool = new PicrossPuzzle[size];
+    private PicrossPuzzle[] getFiles () {
 
-    public PicrossPuzzlePool (Path path) {
+        Path path = Paths.get(".\\Data");
         File[] files;
         File aFile;
         int fileCount = 0;
@@ -22,6 +22,9 @@ public class PicrossPuzzlePool {
         //all files and folders in the Data folder are collected
         aFile = new File(path.toString());
         files = aFile.listFiles();
+        int size = files.length;
+        PicrossPuzzle[] puzzlePool = new PicrossPuzzle[size];
+
 
         //iterate over each file in files
         for (File file : files) {
@@ -30,12 +33,15 @@ public class PicrossPuzzlePool {
             int dotIndex = fileName.lastIndexOf ('.');
             if(dotIndex > 0) { //filename has an extension
                 if (fileName.substring(dotIndex + 1).equals("txt")) {
-                    System.out.println("File #: " + fileCount + "\t" + file);
+                    //System.out.println("File #: " + fileCount + "\t" + file);
                     array2D = readFile(file);
+                    puzzlePool[fileCount] = new PicrossPuzzle(array2D);
                     fileCount++;
+                    //System.out.println(fileCount + "------------------------");
                 }
             }
         }
+        return puzzlePool;
     }
 
 
@@ -74,6 +80,20 @@ public class PicrossPuzzlePool {
         }
     }
 
+
+    public PicrossPuzzle getRandomPuzzle(){
+        int randomNum = (int)(Math.random()*getFiles().length);
+        System.out.println("-----------------------||------------------" + randomNum);
+        return getFiles()[randomNum];
+    }
+
+     PicrossPuzzle PicrossPuzzlePool (int puzzleNum) {
+        return getFiles()[puzzleNum];
+    }
+
+    PicrossPuzzle PicrossPuzzlePool (PicrossPuzzle puzzle) {
+        return puzzle;
+    }
 
 }
 
